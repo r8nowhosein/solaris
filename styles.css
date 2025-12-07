@@ -1,0 +1,50 @@
+*body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+main{
+    background-color: black;
+    min-height: 20vh;
+    position: relative;
+    opacity: 80%;
+    z-index: 1; /* se till att innehållet är över partikelbakgrunden */
+}
+
+#planets{
+ 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    
+
+}
+h1{
+    text-align: center;
+    margin-top: 20px;
+    color:white;
+    z-index: 100;
+}
+
+h2{
+    text-align: center;
+    margin-top: 20px;
+    color:white;
+}
+
+p{
+    text-align: center;
+    margin-top: 20px;
+    color:white;
+}
+
+#tsparticles {
+    position: fixed;
+    inset: 0;             
+    z-index: 0;            
+    margin: 20px!important;
+  pointer-events: none; 
+}
