@@ -84,7 +84,7 @@ getAPIKey()
         console.log(planet )
         planetsContainer.innerHTML += `<div onclick="planetClick('${planet.name}')" id="${planet.name}" class="planet">
        <h2>${planet.name} </h2>
-       <img src="/images/${planet.name}.webp" alt="sun" width="150px" />
+       <img src="./images/${planet.name}.webp" alt="sun" width="150px" />
         
         </div>`;    
     });
