@@ -68,7 +68,6 @@ let planetInfo =planets.filter(p => {
   planetsContainer.innerHTML = `<div  class="planet-info">
        <h2>${planetInfo[0].name} </h2>
          <p>${planetInfo[0].desc} </p>
-
     
         <button onclick="location.reload()">Tillbaka</button>
         </div>`;
@@ -85,8 +84,8 @@ getAPIKey()
         console.log(planet )
         planetsContainer.innerHTML += `<div onclick="planetClick('${planet.name}')" id="${planet.name}" class="planet">
        <h2>${planet.name} </h2>
-
-     
+       <img src="/images/${planet.name}.webp" alt="sun" width="150px" />
+        
         </div>`;    
     });
   })

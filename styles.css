@@ -11,7 +11,13 @@ main{
     opacity: 80%;
     z-index: 1; /* se till att innehållet är över partikelbakgrunden */
 }
-
+image{
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+    z-index: 9999;
+}
 #planets{
  
     display: flex;
