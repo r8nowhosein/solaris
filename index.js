@@ -32,6 +32,7 @@ let solarisKey = "";
 let planets = [];
 /* Container där all innehåll läggs*/
 const planetsContainer = document.getElementById("planets");
+console.log("Skapad av Hosein Moustafa");
 
 
 
@@ -78,7 +79,6 @@ console.log(planetInfo);
 getAPIKey()
   .then(() => getPlanets())              // vänta på nyckeln, hämta planeter
   .then(() => {
-    console.log("Planeter hämtade:", planets);  
     planets.map(planet => {
        /* mappar över alla planeter, lägger en onclick på planeterna så att jag vet vilken som väljs och skriver över nya informationen på sidan */
         planetsContainer.innerHTML += `<div onclick="planetClick('${planet.name}')" id="${planet.name}" class="planet">
