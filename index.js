@@ -1,3 +1,4 @@
+/* inställningar för stjärnorna*/
 tsParticles.load("tsparticles", {
   background: {
     color: "#000"
@@ -29,17 +30,16 @@ tsParticles.load("tsparticles", {
 const API_URL_KEY = "https://4a6l0o1px9.execute-api.eu-north-1.amazonaws.com";
 let solarisKey = "";
 let planets = [];
+/* Container där all innehåll läggs*/
 const planetsContainer = document.getElementById("planets");
-let getPlanetId ="";
 
 
 
-
+/* Hämtar api nyckeln*/ 
 const getAPIKey = async () => {
         const response = await fetch(`${API_URL_KEY}/key`);
     const data = await response.json();
     solarisKey = data.key;
-    console.log(data.key );
     return data;
 }   
 
@@ -50,25 +50,24 @@ const getPlanets = async () => {
 headers: {'x-zocom':  `${solarisKey}` }
 });
     const data = await response.json();
-    console.log(data);
     planets = data.bodies;
     return data;
 }   
-
+/*Klicka på en planet för att få dess information, körs när man väljer en planet */
 const planetClick =(planet)=>{
-console.log(planet);
+  /* Sparar informationen här*/
 let planetInfo =planets.filter(p => {
     if(p.name === planet){
-        console.log(p);
-       return p;
-        
+       return p; 
     }
 }
 )
+console.log(planetInfo);
   planetsContainer.innerHTML = `<div  class="planet-info">
-       <h2>${planetInfo[0].name} </h2>
+  <img src="./images/${planetInfo[0].name}.webp" alt=${planetInfo[0].name} width="150px" />
+       <h2>${planetInfo[0].name} (${planetInfo[0].latinName})</h2>  
          <p>${planetInfo[0].desc} </p>
-    
+          <p><strong>Omkrets:</strong> ${planetInfo[0].circumference} km</p>
         <button onclick="location.reload()">Tillbaka</button>
         </div>`;
 
@@ -81,10 +80,10 @@ getAPIKey()
   .then(() => {
     console.log("Planeter hämtade:", planets);  
     planets.map(planet => {
-        console.log(planet )
+       /* mappar över alla planeter, lägger en onclick på planeterna så att jag vet vilken som väljs och skriver över nya informationen på sidan */
         planetsContainer.innerHTML += `<div onclick="planetClick('${planet.name}')" id="${planet.name}" class="planet">
        <h2>${planet.name} </h2>
-       <img src="./images/${planet.name}.webp" alt="sun" width="150px" />
+       <img src="./images/${planet.name}.webp" alt=${planet.name} width="150px" />
         
         </div>`;    
     });
